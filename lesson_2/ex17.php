@@ -3,9 +3,9 @@
 function fStrstr($var_1_17, $var_2_17) {
     $return = strstr($var_1_17, $var_2_17);
     echo $return ?
-    "Chuỗi \"$var_1_17\" không chứa chuỗi \"$var_2_17\" "
+    "Chuỗi \"$var_1_17\" chứa chuỗi con \"$var_2_17\" "
     : 
-    "Chuỗi \"$var_1_17\" chứa chuỗi con \"$var_2_17\"";
+    "Chuỗi \"$var_1_17\" không chứa chuỗi \"$var_2_17\"";
 }
 
-fStrstr("Hello World!", "VietNam");
+fStrstr("Let my heart free", "Viet");
