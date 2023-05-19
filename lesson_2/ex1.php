@@ -1,7 +1,7 @@
 <?php
     //Viết một chương trình PHP để đếm số ký tự trong một chuỗi sử dụng hàm strlen().
     function fStrlen($variable) {
-        echo "Số ký tự: " . strlen($variable);
+        return strlen($variable);
     }
 
-   fStrlen("Học lập trình");
+    echo "Số ký tự: " . fStrlen("Học lập trình");
