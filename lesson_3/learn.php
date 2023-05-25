@@ -62,15 +62,15 @@ checkMinMax(array(1,4,5,6,-9,29));
 echo "<br>";
 
 // 6. Viết chương trình PHP để sắp xếp một mảng theo thứ tự tăng dần.
-function arrangeArray($array) {
+function arrangeArrayAsc($array) {
     echo "Sắp xếp mảng theo thứ tự tăng dần: ";
     sort($array);
     foreach ($array as $var) {
-        echo "$var, ";
+        echo "$var ";
     }
 }
 
-arrangeArray(array(1,3,5,7,8,-1,-9));
+arrangeArrayAsc(array(1,3,5,7,8,-1,-9));
 echo "<br>";
 
 // 7. Viết chương trình PHP để tính giai thừa của một số nguyên dương.
@@ -247,3 +247,30 @@ function checkPalindrome($string){
     }
 }
 checkPalindrome("madam");
+echo "<br>";
+
+// 18.Viết chương trình PHP để đếm số lần xuất hiện của một phần tử trong một mảng.
+function countOccurrences($array, $element) {
+    $count = 0;
+    for($i = 0; $i < count($array); $i++) {
+        if($array[$i] == $element) {
+            $count++;
+        }
+    }
+    return [$count, $element];
+}
+
+$resultEx18 = countOccurrences(["S","o","m","e","t","h","i","n","g","w","e","n","t","w","r","o","n","g"], "o");
+echo "\"$resultEx18[1]\"". " xuất hiện " . $resultEx18[0] . " lần"; 
+echo "<br>";
+
+// 19.Viết chương trình PHP để sắp xếp một mảng theo thứ tự giảm dần.
+function arrangeArrayDesc($array){
+    echo "Sắp xếp mảng theo thứ tự giảm dần: ";
+    rsort($array);
+    foreach ($array as $var) {
+        echo "$var, ";
+    }
+}
+
+arrangeArrayDesc(["z", "b", "c", "x", "a"]);
