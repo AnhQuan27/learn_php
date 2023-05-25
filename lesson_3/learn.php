@@ -168,6 +168,82 @@ function insertElement($array,$element,$position){
 }
 $resultEx12 = insertElement(array(1, 2, 3, 4, 5), 10, 4);
 
-foreach($resultEx12 as $eachNumber){
-    echo $eachNumber . " ";
+foreach($resultEx12 as $eachElement){
+    echo $eachElement . " ";
 }
+echo "<br>";
+
+
+// 13. Viết chương trình PHP để loại bỏ các phần tử trùng lặp trong một mảng.
+function removeElement($array){
+    $newArray = [];
+    for($i = 0; $i < count($array); $i++){
+        if(in_array($array[$i], $newArray) === false){
+            $newArray[] = $array[$i];
+        }   
+    }
+    return $newArray;
+}
+$resultEx13 = removeElement(array(1,2,3,4,5,1,2,3,8,9,5));
+
+foreach($resultEx13 as $eachElement){
+    echo $eachElement . " ";
+}
+echo "<br>";
+
+// 14. Viết chương trình PHP để tìm vị trí của một phần tử trong một mảng.
+function positionElement($array, $element) {
+    $position = [];
+    for($i = 0; $i < count($array); $i++){
+        if($array[$i] == $element) {
+            $position[] = $i;
+        }
+    }
+    return $position;
+}
+
+$resultEx14 = positionElement(array("S","o","m","e","t","h","i","n","g","w","e","n","t","w","r","o","n","g"), "o");
+foreach($resultEx14 as $eachPosition) {
+    echo $eachPosition . " ";
+}
+echo "<br>";
+
+// 15. Viết chương trình PHP để đảo ngược một chuỗi.
+function reverseString($string){
+    $reverseString = "";
+    for($i = strlen($string) - 1; $i >= 0; $i--){
+        $reverseString = $reverseString . $string[$i];
+    }
+    echo $reverseString;
+}
+echo "Chuỗi đảo ngược: "; 
+reverseString("Stand by me! you and me are inseparable");
+echo "<br>";
+
+// 16. Viết chương trình PHP để tính số lượng phần tử trong một mảng.
+function countElement($array){
+    $count = 0;
+    for($i = 0; $i < count($array); $i++){
+        $count++;
+    }
+    return $count;
+}
+
+$resultEx16 = countElement([1,2,3,4,5]);
+echo $resultEx16;
+echo "<br>";
+
+// 17.Viết chương trình PHP để kiểm tra xem một chuỗi có phải là chuỗi Palindrome hay không.
+function checkPalindrome($string){
+    $reverseString = "";
+    for($i = strlen($string) - 1; $i >= 0; $i--){
+        $reverseString = $reverseString . $string[$i];
+    }
+
+    if($reverseString == $string) {
+        echo "$string là chuỗi Palindrome";
+    } else {
+        echo "$string không phải là chuỗi Palindrome";
+    }
+}
+checkPalindrome("madam");
