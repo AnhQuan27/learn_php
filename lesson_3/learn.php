@@ -87,10 +87,10 @@ echo "<br>";
 
 
 // 8. Viết chương trình PHP để tìm số nguyên tố trong một khoảng cho trước.
-function prime($min, $max){
-    for($i=$min+1; $i<$max; $i++){
+function primeNumber($min, $max){
+    for($i = $min + 1; $i < $max; $i++){
         $count = 0;
-        for($j=1;$j<=$i ;$j++){
+        for($j = 1; $j <= $i; $j++){
             if($i % $j == 0){
                 $count++;
             } 
@@ -101,7 +101,7 @@ function prime($min, $max){
     }
 }
 
-prime(1,20);
+primeNumber(1,20);
 echo "<br>";
 
 // 9. Viết chương trình PHP để tính tổng của các số trong một mảng.
@@ -217,7 +217,7 @@ function reverseString($string){
     echo $reverseString;
 }
 echo "Chuỗi đảo ngược: "; 
-reverseString("Stand by me! you and me are inseparable");
+reverseString("Stand by me! You and me are inseparable");
 echo "<br>";
 
 // 16. Viết chương trình PHP để tính số lượng phần tử trong một mảng.
@@ -274,3 +274,239 @@ function arrangeArrayDesc($array){
 }
 
 arrangeArrayDesc(["z", "b", "c", "x", "a"]);
+echo "<br>";
+
+// 20.Viết chương trình PHP để thêm một phần tử vào đầu hoặc cuối của một mảng.
+function insertToBeginningOrEnd($array, $beginning, $end) {
+    if(isset($beginning)) {
+        $array = insertToBeginning($array, $beginning);
+    }
+
+    if(isset($end)) {
+        $array = insertToEnd($array, $end);
+    }
+
+    foreach($array as $element){
+        echo $element . " ";
+    }
+}
+
+function insertToBeginning($array, $element){
+    array_unshift($array, $element);
+    return $array;
+}
+
+function insertToEnd($array, $element){
+    array_push($array, $element);
+    return $array;
+}
+
+
+$array = [1,2,3,4,5,6,7];
+$beginning = 100;
+$end = null;
+
+insertToBeginningOrEnd($array, $beginning, $end);
+echo "<br>";
+
+// 21.Viết chương trình PHP để tìm số lớn thứ hai trong một mảng.
+function the2ndLargestNumber($array) {
+    $largest = $array[0];
+    $secondLargest = null;
+    for($i = 1; $i < count($array); $i++){
+        if($array[$i] > $largest){
+            $secondLargest = $largest;
+            $largest = $array[$i];
+        } elseif($array[$i] < $largest && $array[$i] > $secondLargest){
+            $secondLargest = $array[$i];
+        }
+    }
+    return $secondLargest;
+}
+
+$array = [1,2,10,5,9,4,2,1,6];
+echo "Số lớn thứ 2 trong mảng là: ";
+echo the2ndLargestNumber($array);
+echo "<br>";
+
+// 22.Viết chương trình PHP để tìm ước số chung lớn nhất và bội số chung nhỏ nhất của hai số nguyên dương.
+function  greatestCommonDivisor($number1, $number2){
+    $GCD = 1;
+    $min = min($number1, $number2);
+    for($i = 1; $i <= $min ;$i++){
+        if($number1 % $i == 0 && $number2 % $i == 0){
+            $GCD = $i;
+        }
+    }
+    return $GCD;
+}
+
+function  leastCommonMultiple($number1, $number2){
+    $GCD = greatestCommonDivisor($number1, $number2);
+    $LCM = ($number1 * $number2)/$GCD;
+    return $LCM;
+}
+
+
+$number1 = 20;
+$number2 = 18;
+
+$GCD = greatestCommonDivisor($number1,$number2);
+$LCM = leastCommonMultiple($number1,$number2);
+
+
+echo "Ước số chung lớn nhất của $number1 và $number2 là: $GCD <br>";
+echo "Bội số chung nhỏ nhất của $number1 và $number2 là: $LCM";
+echo "<br>";
+
+// 23.Viết chương trình PHP để kiểm tra xem một số có phải là số hoàn hảo hay không.
+function perfectNumber($number){
+    $array = [];
+    for($i = 1; $i < $number; $i++){
+        if($number % $i == 0) {
+            $array[] = $i;
+        }
+    }
+    $sum = array_sum($array);
+    if($sum == $number){
+        return $number;
+    } else {
+        return false;
+    }
+}
+
+$number = 6;
+$result = perfectNumber($number);
+
+if($result !== false){
+    echo "$number là số hoàn hảo.";
+} else {
+    echo "$number không phải là số hoàn hảo.";
+}
+echo "<br>";
+
+// 24.Viết chương trình PHP để tìm số lẻ lớn nhất trong một mảng.
+function largestOddNumber($array){
+    $oddNumberArray = [];
+    foreach($array as $element){
+        if($element % 2 !== 0){
+            $oddNumberArray[] = $element;
+        }
+    }
+    $largest = max($oddNumberArray);
+    return $largest;
+}
+
+$array = [1,2,3,4,4,100,99,12];
+echo "Số lẻ lớn nhất trong mảng là: ";
+echo largestOddNumber($array);
+echo "<br>";
+
+// 25.Viết chương trình PHP để kiểm tra xem một số có phải là số nguyên tố hay không.
+function checkPrimeNumber($number){
+    $count = 0;
+    for($i = 1; $i <= $number; $i++){
+        if($number % $i == 0){
+            $count++;
+        }
+    }
+    if($count == 2) {
+        return true;
+    } else {
+        return false;
+    }
+}
+$numEx25 = 19;
+$resultEx25 = checkPrimeNumber($numEx25);
+if($resultEx25 == true){
+    echo "Số $numEx25 là số nguyên tố";
+} else {
+    echo "Số $numEx25 không phải là số nguyên tố";
+}
+echo "<br>";
+
+// 26.Viết chương trình PHP để tìm số dương lớn nhất trong một mảng.
+function largestPositiveInteger($array) {
+    $max = null;
+    $checkPositiveInteger = false;
+    foreach ($array as $element){
+        if($element > 0 && is_numeric($element)){
+            if($element > $max){
+                $max = $element;
+                $checkPositiveInteger = true;
+            }
+        } 
+    }
+    return $max;
+}
+$arrayEx26 = ["A",1, -99, 12, 99, 0];
+$resultEx26 = largestPositiveInteger($arrayEx26);
+if ($resultEx26 === null) {
+    echo "Mảng không chứa số nguyên dương nào";
+} else {
+    echo "Số nguyên dương lớn nhất là: " . $resultEx26;
+}
+echo "<br>";
+
+// 27.Viết chương trình PHP để tìm số âm lớn nhất trong một mảng.
+function largestNegativeInteger($array) {
+    $max = null;
+    $checkNegativeInteger = false;
+    foreach ($array as $element){
+        if($element < 0 && is_numeric($element)){
+            if($element > $max){
+                $max = $element;
+                $checkNegativeInteger = true;
+            }
+        } 
+    }
+    return $max;
+}
+$arrayEx27 = ["A",-1, -99, -12, 99, 0];
+$resultEx27 = largestNegativeInteger($arrayEx27);
+if ($resultEx27 === null) {
+    echo "Mảng không chứa số nguyên âm nào";
+} else {
+    echo "Số nguyên âm lớn nhất là: " . $resultEx27;
+}
+echo "<br>";
+
+// 28.Viết chương trình PHP để tính tổng các số lẻ từ 1 đến n.
+function sumOdd($number){
+    $sumOdd = 0;
+    for($i = 1; $i <= $number; $i++){
+        if($i % 2 != 0){
+            $sumOdd += $i;
+        }
+    }
+    return $sumOdd;
+}
+
+$numEx28 = 10;
+$resultEx28 = sumOdd($numEx28);
+echo "Tổng các số lẻ từ 1 đến $numEx28 là: $resultEx28";
+
+// 29.Viết chương trình PHP để tìm số chính phương trong một khoảng cho trước.
+function squareNumbers($min, $max){
+    $squareNumber = [];
+    for($i = $min; $i <= $max; $i++) {
+        $sqrt = sqrt($i);
+        if($sqrt == floor($sqrt)) {
+            $squareNumber[] = $i;
+        }
+    }
+    return $squareNumber;
+}
+
+$minEx29 = 1;
+$maxEx29 = 100;
+
+$resultEx29 = squareNumbers($minEx29, $maxEx29);
+
+if (empty($resultEx29)) {
+    echo "Không có số chính phương trong khoảng từ $minEx29 đến $maxEx29";
+} else {
+    echo "Các số chính phương trong khoảng từ $minEx29 đến $maxEx29 là: " . implode(", ", $resultEx29);
+}
+
+echo "<br>";
