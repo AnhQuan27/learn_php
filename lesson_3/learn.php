@@ -510,3 +510,22 @@ if (empty($resultEx29)) {
 }
 
 echo "<br>";
+
+// 30.Viết chương trình PHP để kiểm tra xem một chuỗi có phải là chuỗi con của một chuỗi khác hay không.
+function checkSubstringInString($string, $subString){
+    $position = strpos($string, $subString);
+    if($position !== false) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+$stringEx30 = "You came into my life, and left behind memories...";
+$subStringEx30 = "How fool am I";
+$resultEx30 = checkSubstringInString($stringEx30, $subStringEx30);
+if($resultEx30 !== false) {
+    echo "Chuỗi \"$stringEx30\" chứa chuỗi \"$subStringEx30\"";
+} else {
+    echo "Chuỗi \"$stringEx30\" không chứa chuỗi \"$subStringEx30\"";
+}
