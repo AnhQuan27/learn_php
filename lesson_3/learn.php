@@ -1,26 +1,33 @@
 <?php
 // 1. Viết chương trình PHP để kiểm tra xem một số có phải là số chẵn hay không.
-function checkEvenNum($var){
-    if($var % 2 !== 0) {
-        echo "Số này không phải là số chẵn";
+function checkEvenNum($number){
+    if($number % 2 !== 0) {
+        return false;
     } else {
-        echo "Số này là số chẵn";
+        return true;
     }
 }
 
-checkEvenNum(9);
+$numberEx1 = 9;
+$resultEx1 = checkEvenNum($numberEx1);
+if($resultEx1 == false) {
+    echo "$numberEx1 không phải là số chẵn";
+} else {
+    echo "$numberEx1 là một số chẵn";
+}
 echo "<br>";
 
 // 2. Viết chương trình PHP để tính tổng của các số từ 1 đến n.
-function sum1toN($n) {
+function sum1toN($number) {
     $sum = 0;
-    for ($i = 0; $i <= $n; $i++) {
+    for ($i = 0; $i <= $number; $i++) {
         $sum += $i;
     }
-    echo "Tổng từ 1 đến $n là: $sum";
+    return $sum;
 }
-
-sum1toN(9);
+$numberEx2 = 9;
+$resultEx2 = sum1toN(9);
+echo "Tổng các số từ 1 đến $numberEx2 là: $resultEx2";
 echo "<br>";
 
 // 3. Viết chương trình PHP để in ra bảng cửu chương từ 1 đến 10.
