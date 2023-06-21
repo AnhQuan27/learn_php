@@ -455,3 +455,4 @@ try {
 } catch (PDOException $e) {
     echo "Lỗi kết nối đến cơ sở dữ liệu: " . $e->getMessage();
 }
+?>
