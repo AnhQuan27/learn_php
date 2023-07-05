@@ -295,7 +295,7 @@ class RoomOrder {
     }
 }
 
-$booking = new DatPhong("John Doe", "2023-07-20", 3);
+$booking = new RoomOrder("John Doe", "2023-07-20", 3);
 $roomPricePerNight = 100;
 $totalAmount = $booking->calculateTotalAmount($roomPricePerNight);
 echo "Total amount to be paid: $" . $totalAmount;
