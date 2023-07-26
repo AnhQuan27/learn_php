@@ -1,7 +1,8 @@
 <?php
 require_once 'ImageUpload.php';
 
-$targetDir = "images"; // Thư mục lưu trữ hình ảnh đã tải lên
+// Thư mục lưu trữ hình ảnh đã tải lên
+$targetDir = "images"; 
 $imageUpload = new ImageUpload($targetDir);
 
 if (isset($_POST["submit"])) {
